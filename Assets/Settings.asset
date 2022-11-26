@@ -16,3 +16,4 @@ MonoBehaviour:
   scoreTarget: 100
   arcadeModeChronoDuration: 60
   sequenceLength: 6
+  timePenaltyDuration: 1.1

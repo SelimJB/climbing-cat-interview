@@ -12,8 +12,10 @@ namespace DefaultNamespace
 		[SerializeField] private int arcadeModeChronoDuration;
 		[Header("Game parameters")]
 		[SerializeField] private int sequenceLength;
+		[SerializeField] private float timePenaltyDuration;
 
 		public int SequenceLength => sequenceLength;
 		public float ClassicModeTimer => classicModeTimer;
+		public float TimePenaltyDuration => timePenaltyDuration;
 	}
 }

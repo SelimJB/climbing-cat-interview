@@ -28,16 +28,22 @@ namespace DefaultNamespace
 				b.onPatternSelected -= OnPatternSelected;
 		}
 
-		public void WrongAnswerFeedback(Pattern pattern)
+		public void WrongAnswerFeedback(Pattern pattern, float timePenaltyDuration)
 		{
 			foreach (var b in patternButtons)
-				b.WrongAnswerFeedback(pattern);
+				b.WrongAnswerFeedback(pattern, timePenaltyDuration);
 		}
 
 		public void GoodAnswerFeedback(Pattern pattern)
 		{
 			foreach (var b in patternButtons)
 				b.WriteAnswerFeedback(pattern);
+		}
+
+		public void SetEnable(bool value)
+		{
+			foreach (var b in patternButtons)
+				b.SetEnable(value);
 		}
 	}
 }

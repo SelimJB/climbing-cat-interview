@@ -86,7 +86,7 @@ namespace DefaultNamespace
 
 		private void WrongAnswer(Pattern pattern)
 		{
-			patternInputViewModel.WrongAnswerFeedback(pattern);
+			patternInputViewModel.WrongAnswerFeedback(pattern, settings.TimePenaltyDuration);
 			Debug.LogWarning($"WRONG ANSWER : {pattern}");
 		}
 
