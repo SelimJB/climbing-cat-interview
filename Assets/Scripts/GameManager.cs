@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -9,24 +10,43 @@ namespace DefaultNamespace
 		[SerializeField] private Tower tower;
 		[SerializeField] private Climber climber;
 
+		public event Action OnRightAnswer;
+
 		private Sequence sequence;
+		private bool isTimerRunning;
+
+		public int Score { get; private set; }
+		public float Timer { get; private set; }
 
 		private void Awake()
 		{
-			sequence = new Sequence(settings.SequenceLength);
-			Debug.Log(sequence.CurrentPattern);
-			Debug.Log(sequence.ToString());
+			Initialize();
 			tower.Create(sequence);
 		}
 
-		private void OnGUI()
+		private void Update()
 		{
-			if (GUI.Button(new Rect(0, 0, 100, 100), "Test sequence generation"))
+			if (isTimerRunning && Timer > 0)
 			{
-				sequence = new Sequence(settings.SequenceLength);
-				Debug.Log(sequence.ToString());
+				Timer -= Time.deltaTime;
+			}
+			else
+			{
+				Timer = 0;
+				isTimerRunning = false;
 			}
 		}
+
+		private void Initialize()
+		{
+			sequence = new Sequence(settings.SequenceLength);
+			isTimerRunning = true;
+			Score = 0;
+			Timer = settings.ClassicModeTimer;
+			tower.Create(sequence);
+		}
+
+		private void Reset() { }
 
 		private void Start()
 		{
@@ -53,6 +73,8 @@ namespace DefaultNamespace
 			patternInputViewModel.GoodAnswerFeedback(pattern);
 			sequence.Next();
 			JumpToNextPattern();
+			Score++;
+			OnRightAnswer?.Invoke();
 		}
 
 		private void JumpToNextPattern()
