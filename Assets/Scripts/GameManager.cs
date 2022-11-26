@@ -21,7 +21,6 @@ namespace DefaultNamespace
 		private void Awake()
 		{
 			Initialize();
-			tower.Create(sequence);
 		}
 
 		private void Update()
@@ -40,10 +39,10 @@ namespace DefaultNamespace
 		private void Initialize()
 		{
 			sequence = new Sequence(settings.SequenceLength);
+			tower.Create(sequence);
 			isTimerRunning = true;
 			Score = 0;
 			Timer = settings.ClassicModeTimer;
-			tower.Create(sequence);
 		}
 
 		private void Reset() { }
@@ -53,19 +52,19 @@ namespace DefaultNamespace
 			patternInputViewModel.onPatternSelected += OnPatternSelected;
 		}
 
+		private void ResetSequence()
+		{
+			sequence = new Sequence(settings.SequenceLength);
+			tower.Reset(sequence);
+			climber.Jump(0);
+		}
+
 		private void OnPatternSelected(Pattern pattern)
 		{
-			if (sequence.IsFinished())
-			{
-				Debug.LogError("GAME COMPLETED");
-				return;
-			}
-
 			if (IsPatternCorrect(pattern))
 				RightAnswer(sequence.NextPattern);
 			else
 				WrongAnswer(pattern);
-			Debug.Log(sequence);
 		}
 
 		private void RightAnswer(Pattern pattern)
@@ -75,6 +74,9 @@ namespace DefaultNamespace
 			JumpToNextPattern();
 			Score++;
 			OnRightAnswer?.Invoke();
+
+			if (sequence.IsFinished())
+				ResetSequence();
 		}
 
 		private void JumpToNextPattern()

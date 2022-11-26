@@ -29,8 +29,21 @@ namespace DefaultNamespace
 				var patternHolder = Instantiate(patternHolderPrefab, new Vector3(x, 0, 0), Quaternion.identity);
 				patternHolder.Initialize(pattern);
 				floors.Add(patternHolder);
+				patternHolder.transform.parent = transform;
 				x++;
 			}
+		}
+
+		public void Reset(Sequence sequence)
+		{
+			foreach (var floor in floors)
+			{
+				Destroy(floor.gameObject);
+			}
+
+			floors = new List<PatternHolder>();
+
+			Create(sequence);
 		}
 	}
 }
