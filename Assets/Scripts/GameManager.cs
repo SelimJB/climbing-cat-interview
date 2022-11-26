@@ -9,6 +9,7 @@ namespace DefaultNamespace
 		[SerializeField] private PatternInputViewModel patternInputViewModel;
 		[SerializeField] private Tower tower;
 		[SerializeField] private Climber climber;
+		[SerializeField] private GameMenu menu;
 
 		public event Action OnRightAnswer;
 
@@ -21,19 +22,17 @@ namespace DefaultNamespace
 		private void Awake()
 		{
 			Initialize();
+			patternInputViewModel.onPatternSelected += OnPatternSelected;
 		}
 
 		private void Update()
 		{
-			if (isTimerRunning && Timer > 0)
-			{
+			if (!isTimerRunning) return;
+
+			if (Timer > 0)
 				Timer -= Time.deltaTime;
-			}
 			else
-			{
-				Timer = 0;
-				isTimerRunning = false;
-			}
+				EndGame();
 		}
 
 		private void Initialize()
@@ -45,11 +44,21 @@ namespace DefaultNamespace
 			Timer = settings.ClassicModeTimer;
 		}
 
-		private void Reset() { }
 
-		private void Start()
+		private void EndGame()
 		{
-			patternInputViewModel.onPatternSelected += OnPatternSelected;
+			var highScore = PlayerPrefs.GetInt("HighScore");
+
+			if (Score > highScore)
+			{
+				highScore = Score;
+				PlayerPrefs.SetInt("HighScore", Score);
+			}
+
+			patternInputViewModel.SetEnable(false);
+			Timer = 0;
+			isTimerRunning = false;
+			menu.Display(Score, highScore);
 		}
 
 		private void ResetSequence()
@@ -93,6 +102,11 @@ namespace DefaultNamespace
 		private bool IsPatternCorrect(Pattern pattern)
 		{
 			return pattern == sequence.NextPattern;
+		}
+
+		private void OnDestroy()
+		{
+			patternInputViewModel.onPatternSelected -= OnPatternSelected;
 		}
 	}
 }
