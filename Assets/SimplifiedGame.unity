@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be56f948ab046a1bd76362926552b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternHolderPrefab: {fileID: 6574076501696021306, guid: 27eedf8e779a0084bb3ecf7469c223a4, type: 3}
+  floorPrefab: {fileID: 6574076501696021306, guid: 27eedf8e779a0084bb3ecf7469c223a4, type: 3}
 --- !u!4 &1701315218
 Transform:
   m_ObjectHideFlags: 0

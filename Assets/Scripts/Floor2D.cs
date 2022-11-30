@@ -2,13 +2,12 @@
 
 namespace DefaultNamespace
 {
-	// TODO : rename floor
-	public class PatternHolder : MonoBehaviour
+	public class Floor2D : Floor
 	{
 		[SerializeField] private PatternColorSettings patternColorSettings;
 		[SerializeField] private SpriteRenderer sprite;
 
-		public void Initialize(Pattern pattern)
+		public override void Initialize(Pattern pattern)
 		{
 			sprite.color = patternColorSettings.GetPatternColor(pattern);
 		}

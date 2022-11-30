@@ -2,7 +2,7 @@
 
 namespace DefaultNamespace
 {
-	public class Floor : MonoBehaviour
+	public class Floor3D : Floor
 	{
 		[SerializeField] private PatternColorSettings patternColorSettings;
 		[SerializeField] private MeshRenderer mesh;
@@ -10,7 +10,7 @@ namespace DefaultNamespace
 
 		public Transform Platform => platform;
 
-		public void Initialize(Pattern pattern)
+		public override void Initialize(Pattern pattern)
 		{
 			mesh.material.color = patternColorSettings.GetPatternColor(pattern);
 		}

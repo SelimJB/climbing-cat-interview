@@ -20,7 +20,7 @@ namespace DefaultNamespace
 
 		private void Start()
 		{
-			newGameButton.onClick.AddListener(() => SceneManager.LoadScene("Game"));
+			newGameButton.onClick.AddListener(() => SceneManager.LoadScene(0));
 		}
 
 		private void OnDestroy()

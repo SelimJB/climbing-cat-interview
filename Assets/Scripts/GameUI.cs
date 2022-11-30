@@ -3,8 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-	// TODO : change name
-	public class UIView : MonoBehaviour
+	public class GameUI : MonoBehaviour
 	{
 		[SerializeField] private TMP_Text score;
 		[SerializeField] private TMP_Text time;

@@ -6,12 +6,12 @@ using Random = UnityEngine.Random;
 
 namespace DefaultNamespace
 {
-	public class Tower2 : MonoBehaviour
+	public class Tower3D : Tower
 	{
-		[SerializeField] private Floor floorPrefab;
+		[SerializeField] private Floor3D floor3DPrefab;
 		[SerializeField] private GameObject tower;
 
-		private List<Floor> floors;
+		private List<Floor3D> floors;
 
 		private float floorVerticalPadding = 0.5f;
 		private float floorHorizontalPadding = 0.05f;
@@ -23,16 +23,16 @@ namespace DefaultNamespace
 			Create(new Sequence(10));
 		}
 
-		public void Create(Sequence sequence)
+		public override void Create(Sequence sequence)
 		{
 			var height = 0f;
-			var minimumDistanceBetweenFloor = floorPrefab.Platform.localScale.y + floorVerticalPadding;
-			floors = new List<Floor>();
+			var minimumDistanceBetweenFloor = floor3DPrefab.Platform.localScale.y + floorVerticalPadding;
+			floors = new List<Floor3D>();
 
 			for (var i = 0; i < sequence.Patterns.Count; i++)
 			{
 				var pattern = sequence.Patterns[i];
-				var floor = Instantiate(floorPrefab, tower.transform.parent);
+				var floor = Instantiate(floor3DPrefab, tower.transform.parent);
 
 				AdjustFloorTransform(floor.transform, height);
 				floor.Initialize(pattern);
@@ -50,14 +50,19 @@ namespace DefaultNamespace
 			tower.transform.localPosition = new Vector3(0, height / 2, 0);
 		}
 
+		public override void Reset(Sequence sequence)
+		{
+			throw new NotImplementedException();
+		}
+
 		private void AdjustFloorTransform(Transform floor, float height)
 		{
-			var y = height + floorPrefab.Platform.localScale.y / 2;
+			var y = height + floor3DPrefab.Platform.localScale.y / 2;
 			floor.transform.localPosition = new Vector3(0, y, 0);
 			floor.transform.localRotation = Quaternion.Euler(0, 90 * Random.Range(0, 4), 0);
 		}
 
-		public Floor GetFloor(int floorNumber)
+		public override Floor GetFloor(int floorNumber)
 		{
 			if (floors.ElementAtOrDefault(floorNumber) == null)
 				throw new Exception($"There is no floor {floorNumber}");

@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-	// TODO : change name
 	public class PatternInputViewModel : MonoBehaviour
 	{
 		[SerializeField] private List<PatternButton> patternButtons;
