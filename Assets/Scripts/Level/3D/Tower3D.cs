@@ -62,7 +62,7 @@ namespace ClimbingCat.Level
 			floor.transform.localRotation = Quaternion.Euler(0, 90 * Random.Range(0, 4), 0);
 		}
 
-		public Floor GetFloor(int floorNumber)
+		public Floor3D GetFloor(int floorNumber)
 		{
 			if (floors.ElementAtOrDefault(floorNumber) == null)
 				throw new Exception($"There is no floor {floorNumber}");

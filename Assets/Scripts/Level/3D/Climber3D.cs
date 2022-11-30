@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using ClimbingCat.CameraSystems;
+using UnityEngine;
 
 namespace ClimbingCat.Level
 {
 	public class Climber3D : Climber
 	{
 		[SerializeField] private Tower3D tower;
+		[SerializeField] private Camera camera;
 
 		private Vector3 initialLocalPosition;
 
@@ -13,6 +15,7 @@ namespace ClimbingCat.Level
 			var floor = tower.GetFloor(floorNumber);
 			transform.parent = floor.transform;
 			transform.localPosition = initialLocalPosition;
+			CameraPlacementUtility.AdjustCamera(camera, floor.CameraPlacement);
 		}
 
 		private void Start()
