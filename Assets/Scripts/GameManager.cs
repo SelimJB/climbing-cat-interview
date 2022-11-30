@@ -14,6 +14,7 @@ namespace ClimbingCat
 		[SerializeField] private Tower tower;
 		[SerializeField] private Climber climber;
 		[SerializeField] private GameMenu menu;
+		[SerializeField] private UIFeedbackController uiFeedbackController;
 
 		public event Action OnRightAnswer;
 
@@ -59,6 +60,7 @@ namespace ClimbingCat
 				PlayerPrefs.SetInt("HighScore", Score);
 			}
 
+			uiFeedbackController.HideUIFeedbackElements();
 			patternInputViewModel.SetEnable(false);
 			Timer = 0;
 			isTimerRunning = false;
@@ -93,11 +95,14 @@ namespace ClimbingCat
 			if (sequence.IsFinished())
 			{
 				patternInputViewModel.SequenceFinishedFeedback();
+				uiFeedbackController.DisplaySequenceFinishedText(true);
 			}
 		}
 
 		private void SequenceFinishedAnswer()
 		{
+			uiFeedbackController.DisplaySequenceFinishedText(false);
+			uiFeedbackController.PlayBonusAnimation();
 			Score += settings.SequenceFinishedBonus;
 			ResetSequence();
 			patternInputViewModel.RefreshButtonState();

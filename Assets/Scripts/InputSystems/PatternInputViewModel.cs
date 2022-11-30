@@ -9,7 +9,7 @@ namespace ClimbingCat.InputSystems
 		[SerializeField] private List<PatternButton> patternButtons;
 
 		public event Action<Pattern> onPatternSelected;
- 
+
 		private void Start()
 		{
 			foreach (var b in patternButtons)
@@ -36,7 +36,7 @@ namespace ClimbingCat.InputSystems
 		public void GoodAnswerFeedback(Pattern pattern)
 		{
 			foreach (var b in patternButtons)
-				b.WriteAnswerFeedback(pattern);
+				b.GoodAnswerFeedback(pattern);
 		}
 
 		public void SetEnable(bool value)
