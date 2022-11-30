@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.InputSystems
 {
 	// Alternative input controller
 	public class KeyBoardInputController : MonoBehaviour

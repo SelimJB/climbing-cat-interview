@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.Level
 {
 	public class Tower2D : Tower
 	{
@@ -11,7 +11,7 @@ namespace DefaultNamespace
 
 		private List<Floor> floors;
 
-		public override Floor GetFloor(int floorNumber)
+		public Floor GetFloor(int floorNumber)
 		{
 			if (floors.ElementAtOrDefault(floorNumber) == null)
 				throw new Exception($"There is no floor {floorNumber}");

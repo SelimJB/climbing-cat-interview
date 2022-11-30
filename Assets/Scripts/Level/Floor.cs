@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.Level
 {
 	public abstract class Floor : MonoBehaviour
 	{

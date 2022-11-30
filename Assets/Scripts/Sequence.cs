@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
-namespace DefaultNamespace
+namespace ClimbingCat
 {
 	public class Sequence
 	{

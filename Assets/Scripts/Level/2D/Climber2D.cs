@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.Level
 {
 	public class Climber2D : Climber
 	{
-		[SerializeField] private Tower tower;
+		[SerializeField] private Tower2D tower;
 
 		public override void Jump(int floorNumber)
 		{

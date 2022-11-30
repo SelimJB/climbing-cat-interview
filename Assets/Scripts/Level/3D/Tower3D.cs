@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DefaultNamespace
+namespace ClimbingCat.Level
 {
 	public class Tower3D : Tower
 	{
@@ -62,7 +62,7 @@ namespace DefaultNamespace
 			floor.transform.localRotation = Quaternion.Euler(0, 90 * Random.Range(0, 4), 0);
 		}
 
-		public override Floor GetFloor(int floorNumber)
+		public Floor GetFloor(int floorNumber)
 		{
 			if (floors.ElementAtOrDefault(floorNumber) == null)
 				throw new Exception($"There is no floor {floorNumber}");

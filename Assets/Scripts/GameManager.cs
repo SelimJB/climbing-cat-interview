@@ -1,7 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using ClimbingCat.GameSettings;
+using ClimbingCat.InputSystems;
+using ClimbingCat.Level;
+using ClimbingCat.UI;
 
-namespace DefaultNamespace
+namespace ClimbingCat
 {
 	public class GameManager : MonoBehaviour
 	{

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.InputSystems
 {
 	public class PatternInputViewModel : MonoBehaviour
 	{
 		[SerializeField] private List<PatternButton> patternButtons;
 
 		public event Action<Pattern> onPatternSelected;
-
+ 
 		private void Start()
 		{
 			foreach (var b in patternButtons)

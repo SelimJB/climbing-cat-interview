@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.Level
 {
 	public class Climber3D : Climber
 	{

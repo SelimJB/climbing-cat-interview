@@ -2,8 +2,9 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using ClimbingCat.GameSettings;
 
-namespace DefaultNamespace
+namespace ClimbingCat.InputSystems
 {
 	[RequireComponent(typeof(Button))]
 	public class PatternButton : MonoBehaviour

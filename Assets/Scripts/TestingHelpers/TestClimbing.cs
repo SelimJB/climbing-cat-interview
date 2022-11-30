@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using ClimbingCat.Level;
+using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.TestingHelpers
 {
 	public class TestClimbing : MonoBehaviour
 	{

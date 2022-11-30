@@ -1,4 +1,4 @@
-﻿namespace DefaultNamespace
+﻿namespace ClimbingCat
 {
 	// Choosing a button of a certain color means choosing the pattern on which we will land
 	// ie Pattern is equivalent to Color

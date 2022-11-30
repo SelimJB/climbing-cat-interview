@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.UI
 {
 	public class GameUI : MonoBehaviour
 	{

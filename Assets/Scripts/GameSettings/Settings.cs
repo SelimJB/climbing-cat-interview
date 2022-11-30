@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.GameSettings
 {
 	[CreateAssetMenu(fileName = "Settings", menuName = "ScriptableObjects/Settings")]
 	public class Settings : ScriptableObject

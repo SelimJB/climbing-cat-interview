@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using ClimbingCat.GameSettings;
+using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.Level
 {
 	public class Floor2D : Floor
 	{

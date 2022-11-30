@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace ClimbingCat.GameSettings
 {
 	[CreateAssetMenu(fileName = "PatternColorSettings", menuName = "ScriptableObjects/PatternColorSettings")]
 	public class PatternColorSettings : ScriptableObject
