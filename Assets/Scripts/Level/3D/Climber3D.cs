@@ -12,7 +12,7 @@ namespace ClimbingCat.Level
 		[SerializeField] private float cameraAnimationDuration = 1f;
 		[SerializeField] private ClimberView climberView;
 
-		private float pillarRotation;
+		private float towerRotation;
 		private float height;
 
 		public override void Jump(int floorNumber)
@@ -25,7 +25,7 @@ namespace ClimbingCat.Level
 		private void Start()
 		{
 			var floor = tower.GetFloor(0);
-			pillarRotation = floor.transform.localEulerAngles.y + cameraInterpolationSettings.GetPillarRotationOffset;
+			towerRotation = floor.transform.localEulerAngles.y + cameraInterpolationSettings.GetPillarRotationOffset;
 			height = floor.transform.position.y;
 
 			AdjustPosition(floor);
@@ -48,22 +48,22 @@ namespace ClimbingCat.Level
 			var nextRotation = cameraInterpolationSettings.GetPillarRotationOffset + floor.Rotation;
 
 			// TODO : improve
-			if (Mathf.Abs(pillarRotation - nextRotation) > 180)
+			if (Mathf.Abs(towerRotation - nextRotation) > 180)
 			{
-				if (pillarRotation > 180)
-					pillarRotation -= 360;
+				if (towerRotation > 180)
+					towerRotation -= 360;
 				if (nextRotation > 180)
 					nextRotation -= 360;
 			}
 
 			DOTween.To(() => height, x => height = x, floor.Height, cameraAnimationDuration);
-			DOTween.To(() => pillarRotation, x => pillarRotation = x, nextRotation, cameraAnimationDuration)
+			DOTween.To(() => towerRotation, x => towerRotation = x, nextRotation, cameraAnimationDuration)
 				.OnUpdate(AdjustCamera);
 		}
 
 		private void AdjustCamera()
 		{
-			var settings = cameraInterpolationSettings.GetCameraPlacementFromHeightAndAngle(height, pillarRotation, tower.TowerHeight);
+			var settings = cameraInterpolationSettings.GetCameraPlacementFromHeightAndAngle(height, towerRotation, tower.TowerHeight);
 			CameraPlacementUtility.AdjustCamera(camera, settings);
 		}
 
