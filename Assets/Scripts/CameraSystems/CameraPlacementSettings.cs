@@ -13,6 +13,7 @@ namespace ClimbingCat.CameraSystems
 		// Other characteristics
 		public float height;
 		public float horizontalOffset;
+		public float verticalOffset;
 		// The camera only has one degree of rotation and can see more or less high in the direction of the center
 		public float cameraRotation;
 	}

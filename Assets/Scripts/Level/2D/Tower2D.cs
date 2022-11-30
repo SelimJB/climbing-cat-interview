@@ -7,11 +7,11 @@ namespace ClimbingCat.Level
 {
 	public class Tower2D : Tower
 	{
-		[SerializeField] private Floor floorPrefab;
+		[SerializeField] private Floor2D floorPrefab;
 
-		private List<Floor> floors;
+		private List<Floor2D> floors;
 
-		public Floor GetFloor(int floorNumber)
+		public Floor2D GetFloor(int floorNumber)
 		{
 			if (floors.ElementAtOrDefault(floorNumber) == null)
 				throw new Exception($"There is no floor {floorNumber}");
@@ -21,7 +21,7 @@ namespace ClimbingCat.Level
 
 		public override void Create(Sequence sequence)
 		{
-			floors = new List<Floor>();
+			floors = new List<Floor2D>();
 			var x = 0;
 
 			foreach (var pattern in sequence.Patterns)
@@ -41,7 +41,7 @@ namespace ClimbingCat.Level
 				Destroy(floor.gameObject);
 			}
 
-			floors = new List<Floor>();
+			floors = new List<Floor2D>();
 
 			Create(sequence);
 		}

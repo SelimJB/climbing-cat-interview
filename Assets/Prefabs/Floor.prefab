@@ -173,4 +173,4 @@ MonoBehaviour:
   patternColorSettings: {fileID: 11400000, guid: 0ca102c36fdbffb45a85ad45a22b1858, type: 2}
   mesh: {fileID: 8622494807072632323}
   platform: {fileID: 5370730369754096813}
-  PointOfView: {fileID: 1346034865482457157}
+  cameraInterpolationSettings: {fileID: 11400000, guid: 37a9833a43b1fea41a8595c825b69504, type: 2}

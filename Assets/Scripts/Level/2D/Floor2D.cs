@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace ClimbingCat.Level
 {
-	public class Floor2D : Floor
+	public class Floor2D : MonoBehaviour
 	{
 		[SerializeField] private PatternColorSettings patternColorSettings;
 		[SerializeField] private SpriteRenderer sprite;
 
-		public override void Initialize(Pattern pattern)
+		public void Initialize(Pattern pattern)
 		{
 			sprite.color = patternColorSettings.GetPatternColor(pattern);
 		}

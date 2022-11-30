@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &109693094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 109693096}
+  - component: {fileID: 109693095}
+  m_Layer: 0
+  m_Name: FloorCameraPlacementVisualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &109693095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109693094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e498d05fd62a4a629b4e41ef83fb39f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower: {fileID: 1149818599}
+  settings: {fileID: 11400000, guid: 37a9833a43b1fea41a8595c825b69504, type: 2}
+--- !u!4 &109693096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109693094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &409249277 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
@@ -164,12 +209,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-    height: 0
+    centerRotation: 0
     distance: 3.32
-    horizontalOffset: 0
-    towerPivotAngle: 0
-    cameraAngle: 45.53
     center: {x: 0, y: 0, z: 0}
+    height: 0
+    horizontalOffset: 0
+    verticalOffset: 0
+    cameraRotation: 0
 --- !u!4 &605192157
 Transform:
   m_ObjectHideFlags: 0
@@ -468,13 +514,61 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.005155142, y: -0.7263319, z: 0.0054477127, w: 0.6873032}
-  m_LocalPosition: {x: 12.097931, y: 0.9468312, z: 0.02672243}
+  m_LocalRotation: {x: -0.21850799, y: -0.6724986, z: -0.21850799, w: 0.6724985}
+  m_LocalPosition: {x: 5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -24.78, y: 0, z: 0}
+--- !u!1 &1083006955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083006957}
+  - component: {fileID: 1083006956}
+  m_Layer: 0
+  m_Name: InterpolationTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1083006956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083006955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa17a018f0ef479f804d15d82c8da226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraInterpolationSettings: {fileID: 11400000, guid: 37a9833a43b1fea41a8595c825b69504, type: 2}
+  cameraProgress: 0
+  maxHeight: 18
+  controlCamera: 0
+  camera: {fileID: 963194227}
+--- !u!4 &1083006957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083006955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131625785
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor3DPrefab: {fileID: 7797383767451630672, guid: 500ffab0f7418e9469921d101d2fdb50, type: 3}
   tower: {fileID: 1149818594}
+  cameraInterpolationSettings: {fileID: 11400000, guid: 37a9833a43b1fea41a8595c825b69504, type: 2}
 --- !u!1 &1835451295
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,10 +882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28c66be32614290a139b76c451fb227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: 1
-  pivot: {fileID: 664784670948838471}
-  angle: 90
-  teta: 0.3547681
 --- !u!4 &5724469729219063909
 Transform:
   m_ObjectHideFlags: 0
@@ -821,6 +912,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: cameraInterpolationSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 37a9833a43b1fea41a8595c825b69504, type: 2}
     - target: {fileID: 8318511443110015545, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
       propertyPath: m_Name
       value: Climber

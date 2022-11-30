@@ -17,10 +17,14 @@ namespace ClimbingCat.Level
 		private float floorHorizontalPadding = 0.05f;
 		private float maxDistanceBetweenFloor = 4f;
 		private float towerThickness = 1.3f;
+		private float towerHeight;
+
+		public float TowerHeight => towerHeight;
+		public List<Floor3D> Floors => floors;
 
 		private void Awake()
 		{
-			Create(new Sequence(10));
+			Create(new Sequence(25));
 		}
 
 		public override void Create(Sequence sequence)
@@ -31,23 +35,20 @@ namespace ClimbingCat.Level
 
 			for (var i = 0; i < sequence.Patterns.Count; i++)
 			{
-				var pattern = sequence.Patterns[i];
 				var floor = Instantiate(floor3DPrefab, tower.transform.parent);
-
 				AdjustFloorTransform(floor.transform, height);
-				floor.Initialize(pattern);
+				floor.Initialize(sequence.Patterns[i]);
 				floors.Add(floor);
 
 				if (i == sequence.Patterns.Count - 1)
 					height += floor.Platform.localScale.y - 0.001f;
 				else
 					height += Random.Range(minimumDistanceBetweenFloor, maxDistanceBetweenFloor);
-				// transform.parent = parent;
-				// x++;
 			}
 
-			tower.transform.localScale = new Vector3(towerThickness, height, towerThickness);
-			tower.transform.localPosition = new Vector3(0, height / 2, 0);
+			towerHeight = height;
+			tower.transform.localScale = new Vector3(towerThickness, towerHeight, towerThickness);
+			tower.transform.localPosition = new Vector3(0, towerHeight / 2, 0);
 		}
 
 		public override void Reset(Sequence sequence)

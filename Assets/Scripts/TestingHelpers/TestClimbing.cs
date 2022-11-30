@@ -13,7 +13,7 @@ namespace ClimbingCat.TestingHelpers
 		{
 			if (GUI.Button(new Rect(0, 0, 100, 100), "Test"))
 			{
-				climber.Jump(currentLevel + 1);
+				climber.Jump((currentLevel + 1) % 25);
 				currentLevel++;
 			}
 		}
