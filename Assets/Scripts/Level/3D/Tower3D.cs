@@ -53,7 +53,12 @@ namespace ClimbingCat.Level
 
 		public override void Reset(Sequence sequence)
 		{
-			throw new NotImplementedException();
+			foreach (var floor in floors)
+				Destroy(floor.gameObject);
+
+			floors = new List<Floor3D>();
+
+			Create(sequence);
 		}
 
 		private void AdjustFloorTransform(Transform floor, float height)

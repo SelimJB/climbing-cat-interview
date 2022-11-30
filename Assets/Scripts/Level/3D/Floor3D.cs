@@ -8,8 +8,10 @@ namespace ClimbingCat.Level
 		[SerializeField] private PatternColorSettings patternColorSettings;
 		[SerializeField] private MeshRenderer mesh;
 		[SerializeField] private Transform platform;
+		[SerializeField] private Transform climberGrip;
 
 		public Transform Platform => platform;
+		public Transform ClimberGrip => climberGrip;
 		public float Height => transform.position.y;
 		public float Rotation => transform.eulerAngles.y;
 

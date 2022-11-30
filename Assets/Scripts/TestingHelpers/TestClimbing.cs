@@ -5,16 +5,24 @@ namespace ClimbingCat.TestingHelpers
 {
 	public class TestClimbing : MonoBehaviour
 	{
-		[SerializeField] private Climber climber;
+		[SerializeField] private Climber3D climber;
+		[SerializeField] private Tower tower;
 
-		private int currentLevel;
+		private int level;
 
 		public void OnGUI()
 		{
-			if (GUI.Button(new Rect(0, 0, 100, 100), "Test"))
+			if (GUI.Button(new Rect(0, 0, 200, 200), "Climb"))
 			{
-				climber.Jump((currentLevel + 1) % 25);
-				currentLevel++;
+				level++;
+
+				if (level % 25 == 0)
+				{
+					climber.Reset();
+					tower.Reset(new Sequence(25));
+				}
+
+				climber.Jump(level % 25);
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ClimbingCat.CameraSystems
 {
@@ -6,17 +7,18 @@ namespace ClimbingCat.CameraSystems
 	public class CameraInterpolationSettings : ScriptableObject
 	{
 		[SerializeField] private AnimationCurve distanceCurve;
-		[SerializeField] private AnimationCurve rotationCurve;
-		[SerializeField] private AnimationCurve horizontalOffsetCurve;
+		[FormerlySerializedAs("rotationCurve")]
+		[SerializeField] private AnimationCurve cameraRotationCurve;
 		[SerializeField] private AnimationCurve verticalOffsetCurve;
 		[SerializeField] private float distanceFactor = 1;
-		[SerializeField] private float horizontalOffsetFactor = 1;
 		[SerializeField] private float verticalOffsetFactor = 1;
+		[SerializeField] private float maxPillarRotationOffset = 1;
+		[SerializeField] private float minPillarRotationOffset = 1;
 
 		private float GetDistance(float height, float maxHeight) => distanceFactor * distanceCurve.Evaluate(height / maxHeight);
-		private float GetCameraRotation(float height, float maxHeight) => 180 * rotationCurve.Evaluate(height / maxHeight);
-		private float GetHorizontalOffset(float height, float maxHeight) => horizontalOffsetFactor * horizontalOffsetCurve.Evaluate(height / maxHeight);
+		private float GetCameraRotation(float height, float maxHeight) => 180 * cameraRotationCurve.Evaluate(height / maxHeight);
 		private float GetVerticalOffset(float height, float maxHeight) => verticalOffsetFactor * verticalOffsetCurve.Evaluate(height / maxHeight);
+		public float GetPillarRotationOffset => (Random.Range(0, 2) * 2 - 1) * Random.Range(minPillarRotationOffset, maxPillarRotationOffset);
 
 		public CameraPlacementSettings GetCameraPlacementFromHeightAndAngle(float height, float pillarRotation, float maxHeight)
 		{
@@ -26,7 +28,6 @@ namespace ClimbingCat.CameraSystems
 				height = height,
 				distance = GetDistance(height, maxHeight),
 				cameraRotation = GetCameraRotation(height, maxHeight),
-				horizontalOffset = GetHorizontalOffset(height, maxHeight),
 				verticalOffset = GetVerticalOffset(height, maxHeight)
 			};
 		}

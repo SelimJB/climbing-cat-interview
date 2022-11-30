@@ -45,7 +45,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotationCurve:
+  cameraRotationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -66,12 +66,6 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  horizontalOffsetCurve:
-    serializedVersion: 2
-    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -109,5 +103,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   distanceFactor: 5
-  horizontalOffsetFactor: 1
   verticalOffsetFactor: 5
+  maxPillarRotationOffset: 35
+  minPillarRotationOffset: 12

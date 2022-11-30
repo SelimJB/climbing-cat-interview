@@ -11,33 +11,42 @@ namespace ClimbingCat.Level
 		[SerializeField] private CameraInterpolationSettings cameraInterpolationSettings;
 		[SerializeField] private float cameraAnimationDuration = 1f;
 
-		private Vector3 initialLocalPosition;
 		private float pillarRotation;
 		private float height;
 
 		public override void Jump(int floorNumber)
 		{
 			var floor = tower.GetFloor(floorNumber);
-			transform.parent = floor.transform;
-			transform.localPosition = initialLocalPosition;
+			AdjustPosition(floor);
 			CameraAnimation(floor);
 		}
 
 		private void Start()
 		{
-			initialLocalPosition = transform.localPosition;
 			var floor = tower.GetFloor(0);
-			transform.parent = floor.transform;
-			transform.localPosition = initialLocalPosition;
-			pillarRotation = floor.transform.localEulerAngles.y;
+			pillarRotation = floor.transform.localEulerAngles.y + cameraInterpolationSettings.GetPillarRotationOffset;
 			height = floor.transform.position.y;
+
+			AdjustPosition(floor);
 			AdjustCamera();
+		}
+
+		public void Reset()
+		{
+			transform.parent = tower.transform;
+		}
+
+		private void AdjustPosition(Floor3D floor)
+		{
+			transform.parent = floor.ClimberGrip.transform;
+			transform.localPosition = Vector3.zero;
 		}
 
 		private void CameraAnimation(Floor3D floor)
 		{
+			var pillarRotationOffset = cameraInterpolationSettings.GetPillarRotationOffset;
 			DOTween.To(() => height, x => height = x, floor.Height, cameraAnimationDuration);
-			DOTween.To(() => pillarRotation, x => pillarRotation = x, floor.Rotation, cameraAnimationDuration)
+			DOTween.To(() => pillarRotation, x => pillarRotation = x, floor.Rotation + pillarRotationOffset, cameraAnimationDuration)
 				.OnUpdate(AdjustCamera);
 		}
 
