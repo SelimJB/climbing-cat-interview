@@ -74,7 +74,9 @@ namespace ClimbingCat
 
 		private void OnPatternSelected(Pattern pattern)
 		{
-			if (IsPatternCorrect(pattern))
+			if (sequence.IsFinished())
+				SequenceFinishedAnswer();
+			else if (IsPatternCorrect(pattern))
 				RightAnswer(sequence.NextPattern);
 			else
 				WrongAnswer(pattern);
@@ -89,18 +91,28 @@ namespace ClimbingCat
 			OnRightAnswer?.Invoke();
 
 			if (sequence.IsFinished())
-				ResetSequence();
+			{
+				patternInputViewModel.SequenceFinishedFeedback();
+			}
 		}
 
-		private void JumpToNextPattern()
+		private void SequenceFinishedAnswer()
 		{
-			climber.Jump(sequence.CurrentIndex);
+			Score += settings.SequenceFinishedBonus;
+			ResetSequence();
+			patternInputViewModel.RefreshButtonState();
+			OnRightAnswer?.Invoke();
 		}
 
 		private void WrongAnswer(Pattern pattern)
 		{
 			patternInputViewModel.WrongAnswerFeedback(pattern, settings.TimePenaltyDuration);
 			Debug.LogWarning($"WRONG ANSWER : {pattern}");
+		}
+
+		private void JumpToNextPattern()
+		{
+			climber.Jump(sequence.CurrentIndex);
 		}
 
 		private bool IsPatternCorrect(Pattern pattern)

@@ -14,7 +14,14 @@ namespace ClimbingCat.InputSystems
 		[SerializeField] private PatternColorSettings patternColorSettings;
 
 		private Button button;
-		private bool isSelectable = true;
+		private State ButtonState = State.Enabled;
+
+		private enum State
+		{
+			Enabled,
+			SequenceFinished,
+			Disabled
+		}
 
 		public event Action<Pattern> onPatternSelected;
 
@@ -27,7 +34,7 @@ namespace ClimbingCat.InputSystems
 
 		public void SelectPattern()
 		{
-			if (isSelectable)
+			if (ButtonState != State.Disabled)
 				onPatternSelected?.Invoke(pattern);
 		}
 
@@ -49,6 +56,21 @@ namespace ClimbingCat.InputSystems
 				return;
 		}
 
+		public void SequenceFinishedFeedback()
+		{
+			ButtonState = State.SequenceFinished;
+			image.color = Color.green;
+		}
+
+		public void Refresh()
+		{
+			if (ButtonState == State.SequenceFinished)
+			{
+				ButtonState = State.Enabled;
+				RefreshButtonColor();
+			}
+		}
+		
 		private void RefreshButtonColor()
 		{
 			image.color = patternColorSettings.GetPatternColor(pattern);
@@ -61,16 +83,16 @@ namespace ClimbingCat.InputSystems
 
 		public void SetEnable(bool value)
 		{
-			isSelectable = value;
+			ButtonState = value ? State.Enabled : State.Disabled;
 		}
 
 		private IEnumerator Disable(float duration)
 		{
-			isSelectable = false;
+			ButtonState = State.Disabled;
 			image.color = Color.gray;
 			yield return new WaitForSeconds(duration);
 			RefreshButtonColor();
-			isSelectable = true;
+			ButtonState = State.Enabled;
 		}
 	}
 }

@@ -13,9 +13,11 @@ namespace ClimbingCat.GameSettings
 		[Header("Game parameters")]
 		[SerializeField] private int sequenceLength;
 		[SerializeField] private float timePenaltyDuration;
+		[SerializeField] private int sequenceFinishedBonus;
 
 		public int SequenceLength => sequenceLength;
 		public float ClassicModeTimer => classicModeTimer;
 		public float TimePenaltyDuration => timePenaltyDuration;
+		public int SequenceFinishedBonus => sequenceFinishedBonus;
 	}
 }

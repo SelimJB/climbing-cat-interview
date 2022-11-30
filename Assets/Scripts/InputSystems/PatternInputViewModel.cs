@@ -44,5 +44,17 @@ namespace ClimbingCat.InputSystems
 			foreach (var b in patternButtons)
 				b.SetEnable(value);
 		}
+
+		public void SequenceFinishedFeedback()
+		{
+			foreach (var b in patternButtons)
+				b.SequenceFinishedFeedback();
+		}
+
+		public void RefreshButtonState()
+		{
+			foreach (var b in patternButtons)
+				b.Refresh();
+		}
 	}
 }
