@@ -107,7 +107,7 @@ namespace ClimbingCat
 		private void WrongAnswer(Pattern pattern)
 		{
 			patternInputViewModel.WrongAnswerFeedback(pattern, settings.TimePenaltyDuration);
-			Debug.LogWarning($"WRONG ANSWER : {pattern}");
+			climber.WrongAnswerAnimation();
 		}
 
 		private void JumpToNextPattern()

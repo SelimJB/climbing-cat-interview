@@ -10,6 +10,7 @@ namespace ClimbingCat.Level
 		[SerializeField] private Camera camera;
 		[SerializeField] private CameraInterpolationSettings cameraInterpolationSettings;
 		[SerializeField] private float cameraAnimationDuration = 1f;
+		[SerializeField] private ClimberView climberView;
 
 		private float pillarRotation;
 		private float height;
@@ -64,6 +65,11 @@ namespace ClimbingCat.Level
 		{
 			var settings = cameraInterpolationSettings.GetCameraPlacementFromHeightAndAngle(height, pillarRotation, tower.TowerHeight);
 			CameraPlacementUtility.AdjustCamera(camera, settings);
+		}
+
+		public override void WrongAnswerAnimation()
+		{
+			climberView.WrongAnswerAnimation();
 		}
 	}
 }

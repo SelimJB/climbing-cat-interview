@@ -12,6 +12,8 @@ namespace ClimbingCat.Level
 			transform.position = floor.transform.position;
 		}
 
+		public override void WrongAnswerAnimation() { }
+
 		private void Start()
 		{
 			Jump(0);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8318511443110015551}
   - component: {fileID: 8318511443110015550}
   - component: {fileID: 4172558781830958313}
+  - component: {fileID: 6827582968485928173}
   m_Layer: 0
   m_Name: Climber
   m_TagString: Untagged
@@ -110,6 +111,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
+  camera: {fileID: 0}
+  cameraInterpolationSettings: {fileID: 0}
+  cameraAnimationDuration: 1
+  climberView: {fileID: 6827582968485928173}
+--- !u!114 &6827582968485928173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318511443110015545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a56388847a478993b82a5e03434ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climberMaterial1: {fileID: 8318511443110015551}
+  climberMaterial2: {fileID: 8318511444518617906}
+  customEase:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8318511444518617919
 GameObject:
   m_ObjectHideFlags: 0

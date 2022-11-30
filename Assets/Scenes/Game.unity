@@ -1068,6 +1068,74 @@ PrefabInstance:
       propertyPath: cameraInterpolationSettings
       value: 
       objectReference: {fileID: 11400000, guid: 37a9833a43b1fea41a8595c825b69504, type: 2}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[0].inSlope
+      value: -3.027937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[1].inSlope
+      value: 0.99647176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[2].inSlope
+      value: 4.5155945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[0].outSlope
+      value: -3.027937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[1].inWeight
+      value: 0.36474818
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[1].outSlope
+      value: 0.99647176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[2].inWeight
+      value: 0.04105299
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[2].outSlope
+      value: 4.5155945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[0].outWeight
+      value: 0.18853046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[0].weightedMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172558781830958313, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: customEase.m_Curve.Array.data[1].weightedMode
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8318511443110015545, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
       propertyPath: m_Name
       value: Climber
@@ -1115,6 +1183,22 @@ PrefabInstance:
     - target: {fileID: 8318511443110015549, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318511443110015551, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318511444518617906, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318511444518617906, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ff25da376e9d2974da355735e13f3f6b, type: 2}
+    - target: {fileID: 8318511444518617919, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
+      propertyPath: m_Name
+      value: Drawing
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d06a84e2a08fc44b8eaa4cf6faedbc8, type: 3}
