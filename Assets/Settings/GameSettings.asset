@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1e3825821d411ea5a03d4a5046ea41, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  classicModeTimer: 5
+  classicModeTimer: 75
   scoreTarget: 100
   arcadeModeChronoDuration: 75
-  sequenceLength: 6
+  sequenceLength: 22
   timePenaltyDuration: 1.1

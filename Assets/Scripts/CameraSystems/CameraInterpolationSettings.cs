@@ -16,7 +16,7 @@ namespace ClimbingCat.CameraSystems
 		[SerializeField] private float minPillarRotationOffset = 1;
 
 		private float GetDistance(float height, float maxHeight) => distanceFactor * distanceCurve.Evaluate(height / maxHeight);
-		private float GetCameraRotation(float height, float maxHeight) => 180 * cameraRotationCurve.Evaluate(height / maxHeight);
+		private float GetCameraRotation(float height, float maxHeight) => 180 - 180 * cameraRotationCurve.Evaluate(height / maxHeight);
 		private float GetVerticalOffset(float height, float maxHeight) => verticalOffsetFactor * verticalOffsetCurve.Evaluate(height / maxHeight);
 		public float GetPillarRotationOffset => (Random.Range(0, 2) * 2 - 1) * Random.Range(minPillarRotationOffset, maxPillarRotationOffset);
 

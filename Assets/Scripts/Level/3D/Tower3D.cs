@@ -15,17 +15,12 @@ namespace ClimbingCat.Level
 
 		private float floorVerticalPadding = 0.5f;
 		private float floorHorizontalPadding = 0.05f;
-		private float maxDistanceBetweenFloor = 4f;
+		private float maxDistanceBetweenFloor = 3f;
 		private float towerThickness = 1.3f;
 		private float towerHeight;
 
 		public float TowerHeight => towerHeight;
 		public List<Floor3D> Floors => floors;
-
-		private void Awake()
-		{
-			Create(new Sequence(25));
-		}
 
 		public override void Create(Sequence sequence)
 		{

@@ -44,9 +44,19 @@ namespace ClimbingCat.Level
 
 		private void CameraAnimation(Floor3D floor)
 		{
-			var pillarRotationOffset = cameraInterpolationSettings.GetPillarRotationOffset;
+			var nextRotation = cameraInterpolationSettings.GetPillarRotationOffset + floor.Rotation;
+
+			// TODO : improve
+			if (Mathf.Abs(pillarRotation - nextRotation) > 180)
+			{
+				if (pillarRotation > 180)
+					pillarRotation -= 360;
+				if (nextRotation > 180)
+					nextRotation -= 360;
+			}
+
 			DOTween.To(() => height, x => height = x, floor.Height, cameraAnimationDuration);
-			DOTween.To(() => pillarRotation, x => pillarRotation = x, floor.Rotation + pillarRotationOffset, cameraAnimationDuration)
+			DOTween.To(() => pillarRotation, x => pillarRotation = x, nextRotation, cameraAnimationDuration)
 				.OnUpdate(AdjustCamera);
 		}
 

@@ -10,6 +10,11 @@ namespace ClimbingCat.TestingHelpers
 
 		private int level;
 
+		private void Awake()
+		{
+			tower.Create(new Sequence(25));
+		}
+
 		public void OnGUI()
 		{
 			if (GUI.Button(new Rect(0, 0, 200, 200), "Climb"))
