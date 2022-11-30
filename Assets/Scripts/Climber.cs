@@ -16,7 +16,5 @@ namespace DefaultNamespace
 		{
 			Jump(0);
 		}
-		
-		
 	}
 }
