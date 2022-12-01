@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ClimbingCat.UI
 {
@@ -8,11 +9,13 @@ namespace ClimbingCat.UI
 		[SerializeField] private TMP_Text score;
 		[SerializeField] private TMP_Text time;
 		[SerializeField] private GameManager gameManager;
+		[SerializeField] private Button menuButton;
 
 		private void Start()
 		{
-			score.text = "0";
+			score.text = gameManager.Score.ToString();
 			gameManager.OnRightAnswer += OnRightAnswer;
+			menuButton.onClick.AddListener(OnMenuButtonClick);
 		}
 
 		void Update()
@@ -28,6 +31,12 @@ namespace ClimbingCat.UI
 		private void OnDestroy()
 		{
 			gameManager.OnRightAnswer -= OnRightAnswer;
+			menuButton.onClick.RemoveListener(OnMenuButtonClick);
+		}
+
+		private void OnMenuButtonClick()
+		{
+			gameManager.EndGame();
 		}
 
 		private string FormatTime(float time) => $"{Mathf.FloorToInt(time / 60):0}:{Mathf.FloorToInt(time % 60):00}";
