@@ -15,9 +15,9 @@ namespace ClimbingCat
 		public int CurrentIndex => currentIndex;
 		public List<Pattern> Patterns => patterns;
 
-		public Sequence(int sequenceLength)
+		public Sequence(int sequenceLength, int availablePatternNumber = 3)
 		{
-			patterns = GenerateRandomSequence(sequenceLength);
+			patterns = GenerateRandomSequence(sequenceLength, availablePatternNumber);
 		}
 
 		public bool IsFinished() => currentIndex + 1 == patterns.Count;
@@ -30,14 +30,14 @@ namespace ClimbingCat
 				Debug.LogError("Sequence already completed");
 		}
 
-		private List<Pattern> GenerateRandomSequence(int sequenceLength)
+		private List<Pattern> GenerateRandomSequence(int sequenceLength, int availablePatternNumber = 3)
 		{
 			var sequence = new List<Pattern>();
 			var patternValues = Enum.GetValues(typeof(Pattern));
 			var random = new Random();
 
 			for (var i = 0; i < sequenceLength; i++)
-				sequence.Add((Pattern)patternValues.GetValue(random.Next(patternValues.Length)));
+				sequence.Add((Pattern)patternValues.GetValue(random.Next(availablePatternNumber)));
 
 			return sequence;
 		}

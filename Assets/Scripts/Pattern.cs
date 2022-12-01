@@ -7,6 +7,9 @@
 	{
 		Red,
 		Blue,
-		Yellow
+		Yellow,
+		Green,
+		Pink,
+		Purple
 	}
 }

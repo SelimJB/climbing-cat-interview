@@ -31,11 +31,17 @@ namespace ClimbingCat.InputSystems
 
 		public event Action<Pattern> onPatternSelected;
 
-		private void Start()
+		private void Awake()
 		{
 			button = GetComponent<Button>();
 			button.onClick.AddListener(SelectPattern);
 			RefreshButtonColor();
+		}
+
+		public void ChangePattern(Pattern pattern)
+		{
+			this.pattern = pattern;
+			Refresh();
 		}
 
 		public void SelectPattern()
@@ -54,7 +60,7 @@ namespace ClimbingCat.InputSystems
 				return;
 		}
 
-		public void GoodAnswerFeedback(Pattern correctColor)
+		public void RightAnswerFeedback(Pattern correctColor)
 		{
 			if (pattern == correctColor)
 				return;
@@ -76,8 +82,9 @@ namespace ClimbingCat.InputSystems
 			{
 				ButtonState = State.Enabled;
 				text.text = string.Empty;
-				RefreshButtonColor();
 			}
+
+			RefreshButtonColor();
 		}
 
 		private void RefreshButtonColor()

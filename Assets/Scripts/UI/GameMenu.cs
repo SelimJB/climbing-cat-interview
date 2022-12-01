@@ -8,6 +8,7 @@ namespace ClimbingCat.UI
 	public class GameMenu : MonoBehaviour
 	{
 		[SerializeField] private Button newGameButton;
+		[SerializeField] private Button introMenuButton;
 		[SerializeField] private TMP_Text highscore;
 		[SerializeField] private TMP_Text score;
 
@@ -20,12 +21,14 @@ namespace ClimbingCat.UI
 
 		private void Start()
 		{
-			newGameButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+			newGameButton.onClick.AddListener(() => SceneManager.LoadScene(1));
+			introMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
 		}
 
 		private void OnDestroy()
 		{
 			newGameButton.onClick.RemoveAllListeners();
+			introMenuButton.onClick.RemoveAllListeners();
 		}
 	}
 }
